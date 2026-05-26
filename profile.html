@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>User Profile</title>
+
+  <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        <img src="image/logo.png" class="logo-img">
+        AURA <span>BAZZAR</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#plans">Compare Plans</a></li>
+        <li><a href="booking.html" class="book-btn">Book Now</a></li>
+    </ul>
+
+    <!-- USER PROFILE AREA (HIDDEN BY DEFAULT) -->
+    <div class="user-area" id="userArea" style="display:none;">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+             class="user-img">
+
+        <div class="user-info">
+            <span id="userName"></span>
+            <small id="userEmail"></small>
+        </div>
+
+        <button onclick="logout()" class="logout-btn">Logout</button>
+
+    </div>
+
+</nav>
+
+<h2 id="welcomeText"></h2>
+
+<script>
+
+let user = JSON.parse(localStorage.getItem("loggedUser"));
+
+let userArea = document.getElementById("userArea");
+
+if (user) {
+
+    userArea.style.display = "flex";
+
+    document.getElementById("userName").innerText =
+        user.firstName;
+
+    document.getElementById("userEmail").innerText =
+        user.email;
+
+         // 👇 WELCOME MESSAGE
+    document.getElementById("welcomeText").innerText =
+        "Welcome to Aura Bazzar, " + user.firstName + " 👋";
+
+
+} else {
+
+    userArea.style.display = "none";
+}
+
+//logged out
+
+function logout(){
+
+    alert("Logged Out");
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+
+
+
+
+</body>
+</html>

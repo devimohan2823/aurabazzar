@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Premium Sign Up | Aura Bazar Health</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="aura-premium-theme">
+
+    <div class="main-screen">
+
+        <!-- Progress Bar -->
+        <div class="top-progress">
+            <div class="fill" id="progressFill"></div>
+        </div>
+
+        <div class="content-wrapper">
+
+            <!-- Left Side -->
+            <div class="brand-side">
+
+                <div class="badge">
+                    Aura Bazar Health X
+                </div>
+
+                <h1 class="hero-title">
+                    Small steps today,
+                    <br>
+
+                    <span class="text-blue">
+                        Secure Life
+                    </span>
+
+                    <br>
+
+                    <span class="text-italic">
+                        Tomorrow.
+                    </span>
+                </h1>
+
+                <p class="hero-sub">
+                    Providing insurance solutions that protect what matters most.
+                </p>
+
+                <div class="feature-pills">
+                    <span>🛡️ Trusted Coverage</span>
+                    <span>⚡ Quick Process</span>
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+            <div class="form-side">
+
+                <div class="glass-card">
+
+                    <form id="signupForm" action="signup.php" method="POST">
+
+                        <!-- STEP 1 -->
+                        <div class="step active" id="step1">
+
+                            <h2 class="step-heading">
+                                Personal Identity
+                            </h2>
+
+                            <div class="input-container">
+                                <input type="text" name="firstName" placeholder="" required>
+                                <label>First Name</label>
+                            </div>
+
+                            <div class="input-container">
+                                <input type="text" name="lastName" placeholder="" required>
+                                <label>Last Name</label>
+                            </div>
+
+                            <div class="input-container">
+                                <input type="date" name="dob" required>
+                                <label class="fixed">
+                                    Date of Birth
+                                </label>
+                            </div>
+
+                            <button type="button" class="main-btn" onclick="nextStep(2)">
+                                Continue →
+                            </button>
+
+                        </div>
+
+                        <!-- STEP 2 -->
+                        <div class="step" id="step2">
+
+                            <h2 class="step-heading">
+                                Contact Information
+                            </h2>
+
+                            <div class="input-container">
+                                <input type="email" name="email" placeholder="" required>
+                                <label>Email Address</label>
+                            </div>
+
+                            <div class="input-container">
+                                <input type="tel" name="mobileNumber" placeholder="" required>
+                                <label>Mobile Number</label>
+                            </div>
+
+                            <div class="input-container">
+
+                                <select name="gender" required>
+
+                                    <option value="" disabled selected>
+                                        Select Gender
+                                    </option>
+
+                                    <option value="Male">
+                                        Male
+                                    </option>
+
+                                    <option value="Female">
+                                        Female
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="btn-group">
+
+                                <button type="button" class="back-btn" onclick="nextStep(1)">
+                                    Back
+                                </button>
+
+                                <button type="button" class="main-btn" onclick="nextStep(3)">
+                                    Security →
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- STEP 3 -->
+                        <div class="step" id="step3">
+
+                            <h2 class="step-heading">
+                                Account Security
+                            </h2>
+
+                            <div class="input-container">
+                                <input type="password" id="password" name="Password" placeholder=" " required>
+                                <label>Create Password</label>
+                            </div>
+
+                            <div class="input-container">
+
+                                <input type="password" id="confirmPassword" name="ConfirmPassword" placeholder=" "
+                                    required>
+
+                                <label>Confirm Password</label>
+
+                                <span id="passwordMessage" class="validation-msg"></span>
+
+                            </div>
+
+                            <div class="terms-box">
+
+                                <input type="checkbox" id="terms" required>
+
+                                <label for="terms">
+                                    I agree to the Health Privacy Terms
+                                </label>
+
+                            </div>
+
+                            <div class="btn-group">
+
+                                <button type="button" class="back-btn" onclick="nextStep(2)">
+                                    Back
+                                </button>
+
+                                <button type="submit" class="submit-btn">
+                                    Finalize Profile
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <p class="login-footer">
+                    Already have an account?
+                    <a href="login.html">Sign In</a>
+                </p>
+
+                <p class="login-footer">
+                    Go to home page
+                    <a href="index.html">HOME</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+const signupForm = document.getElementById('signupForm'); 
+
+if (signupForm) {
+    signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Stop page reload
+        
+        // Grab the form elements directly by their 'name' attributes safely
+        const payload = {
+            firstName: signupForm.elements['firstName']?.value.trim() || '',
+            lastName: signupForm.elements['lastName']?.value.trim() || '',
+            email: signupForm.elements['email']?.value.trim() || '',
+            mobileNumber: signupForm.elements['mobileNumber']?.value.trim() || '',
+            gender: signupForm.elements['gender']?.value || '',
+            dob: signupForm.elements['dob']?.value || '',
+            password: signupForm.elements['password']?.value ||''
+        };
+
+        // Log this to your browser console so you can see if the data is actually captured before sending!
+        console.log("Sending Payload:", payload);
+
+        try {
+            // Paste your Web App URL here
+            const signupScriptURL = "https://script.google.com/macros/s/AKfycbzd08NaJYtcOVREk8GrAN6xMyNA2soRRILgp7NqEwafOodZBe8kJ4V6xTWroTebQkOe/exec";
+
+
+            await fetch(signupScriptURL, {
+                method: 'POST',
+                mode: 'no-cors', 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            alert('Account created successfully! Redirecting to login...');
+            signupForm.reset();
+            window.location.href = 'login.html';
+            
+        } catch (err) {
+            console.error("Signup Submission Error:", err);
+            alert('Failed to transmit data. Please check your connection.');
+        }
+    });
+}
+</script>
+
+    <script src="script.js"></script> 
+
+</body>
+
+</html>

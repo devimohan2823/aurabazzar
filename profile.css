@@ -1,0 +1,194 @@
+
+
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Prevent navbar overlap */
+body {
+    margin: 0;
+    padding-top: 80px;
+    background: #f5f7fb;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 40px;
+    background: #081b29;
+    color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+    gap: 10px;
+    color: white;
+}
+
+.logo span {
+    color: #00aaff;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Hover */
+.nav-links a:hover {
+    color: #00aaff;
+}
+
+/* BOOK BUTTON */
+.book-btn {
+    background: #00aaff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white !important;
+    transition: 0.3s;
+}
+
+.book-btn:hover {
+    background: #0088cc;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 100px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+    }
+
+    .book-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* USER AREA IN NAVBAR */
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+/* PROFILE IMAGE */
+.user-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/* USER INFO TEXT */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.user-info span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-info small {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.logout-btn:hover {
+    background: darkred;
+}
+
+#welcomeText {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 30px;
+    color: #081b29;
+    font-weight: 600;
+}
+

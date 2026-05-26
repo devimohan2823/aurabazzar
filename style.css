@@ -1,0 +1,1004 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Plus Jakarta Sans',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#081b29,#0f3d5e);
+    min-height:100vh;
+    color:white;
+}
+
+.main-screen{
+    width:100%;
+}
+
+.top-progress{
+    width:100%;
+    height:6px;
+    background:#1d3d56;
+}
+
+.fill{
+    width:33%;
+    height:100%;
+    background:#00aaff;
+    transition:0.4s;
+}
+
+.content-wrapper{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:100vh;
+    padding:40px;
+}
+
+.brand-side{
+    width:45%;
+}
+
+.badge{
+    display:inline-block;
+    background:#16384d;
+    padding:10px 20px;
+    border-radius:30px;
+    margin-bottom:20px;
+}
+
+.hero-title{
+    font-size:60px;
+    line-height:1.2;
+}
+
+.text-blue{
+    color:#00aaff;
+}
+
+.text-italic{
+    font-style:italic;
+}
+
+.hero-sub{
+    margin-top:20px;
+    color:#dcdcdc;
+    font-size:18px;
+}
+
+.feature-pills{
+    margin-top:30px;
+}
+
+.feature-pills span{
+    background:#16384d;
+    padding:12px 20px;
+    border-radius:30px;
+    margin-right:10px;
+}
+
+.form-side{
+    width:40%;
+}
+
+.glass-card{
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(12px);
+}
+
+.step{
+    display:none;
+}
+
+.step.active{
+    display:block;
+}
+
+.step-heading{
+    margin-bottom:25px;
+}
+
+.input-container{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.input-container input,
+.input-container select{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+}
+
+.input-container label{
+    position:absolute;
+    left:15px;
+    top:15px;
+    color:gray;
+    transition:0.3s;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown)+label{
+    top:-10px;
+    left:10px;
+    background:white;
+    padding:0 5px;
+    font-size:12px;
+}
+
+.fixed{
+    top:-10px !important;
+    left:10px !important;
+    background:white;
+    padding:0 5px;
+    font-size:12px;
+}
+
+.main-btn,
+.back-btn,
+.submit-btn{
+    padding:14px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.main-btn,
+.submit-btn{
+    background:#00aaff;
+    color:white;
+}
+
+.back-btn{
+    background:#dcdcdc;
+}
+
+.btn-group{
+    display:flex;
+    justify-content:space-between;
+}
+
+.terms-box{
+    margin-bottom:20px;
+}
+
+.validation-msg{
+    font-size:13px;
+    margin-top:5px;
+    display:block;
+}
+
+.login-footer{
+    margin-top:20px;
+    text-align:center;
+}
+
+.login-footer a{
+    color:#00c3ff;
+    text-decoration:none;
+}
+
+/** mobile friend**/
+@media (max-width: 768px) {
+
+    .content-wrapper {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .brand-side,
+    .form-side {
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .glass-card {
+        padding: 20px;
+    }
+
+    .feature-pills span {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-btn,
+    .back-btn,
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+/** from aura**/
+
+:root {
+    --primary: #002e5b;
+    --secondary: #e63946;
+    --light: #f1f3f5;
+    --white: #ffffff;
+    --dark: #212529;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { line-height: 1.6; color: var(--dark); overflow-x: hidden; }
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--primary); color: white; display: flex;
+    justify-content: center; align-items: center; z-index: 9999;
+    transition: opacity 1s, visibility 1s;
+}
+#splash-screen.hidden { opacity: 0; visibility: hidden; }
+.fade-in { animation: fadeIn 1.5s forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Layout Elements */
+ 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: white;
+    position: sticky; /* Add 'position:' here */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+.logo span { color: var(--secondary); }
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; }
+.auth-btn { background: var(--primary); color: white !important; padding: 8px 18px; border-radius: 4px; }
+.book-btn { border: 1px solid var(--secondary); color: var(--secondary) !important; padding: 8px 18px; border-radius: 4px; }
+
+
+
+/* The Slider Engine */
+/* Reset margins for full-screen effect */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+
+/* Optional Overlay Styling */
+.hero-overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-overlay-content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+/* Staggering the 5 images (5 seconds each) */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+.slide:nth-child(4) { animation-delay: 15s; }
+.slide:nth-child(5) { animation-delay: 20s; }
+
+@keyframes slideShow {
+    0% { opacity: 0; transform: scale(1); }
+    5% { opacity: 1; }
+    20% { opacity: 1; }
+    25% { opacity: 0; transform: scale(1.1); } /* Slight zoom effect */
+    100% { opacity: 0; }
+}
+
+/* Text Overlay Styling */
+.hero-content {
+    background: rgba(0, 46, 91, 0.6); /* Dark blue semi-transparent box */
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* Modern blurry glass effect */
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+/* Horizontal Plan Layout */
+.plans-list-section {
+    padding: 40px 5%;
+    background-color: #f9f9fb;
+}
+
+.plans-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.plan-row {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+
+.plan-row:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.featured-border {
+    border-left: 4px solid #e63946;
+}
+
+/* Brand Section */
+.insurer-brand {
+    flex: 1;
+    border-right: 1px solid #f0f0f0;
+    text-align: center;
+}
+
+.brand-logo {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--primary);
+}
+
+.about-link {
+    font-size: 11px;
+    color: #888;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Details Section */
+.plan-details {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.plan-name {
+    font-size: 18px;
+    color: #444;
+}
+
+.heart-icon {
+    font-size: 16px;
+    color: #ccc;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.features-brief {
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.view-list {
+    color: #2c7be5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Meta & Pricing */
+.plan-meta, .plan-pricing {
+    flex: 1.2;
+    text-align: center;
+}
+
+.meta-label {
+    font-size: 12px;
+    color: #888;
+}
+
+.meta-value, .price-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.tax-info {
+    font-size: 11px;
+    color: #999;
+}
+
+/* Actions */
+.plan-actions {
+    flex: 1.5;
+    text-align: right;
+}
+
+.cta-btn {
+    background: #ff5a2c; /* PolicyBazaar orange */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.compare-checkbox {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Top Label Tag */
+.tag-label {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #e8f0fe;
+    color: #1967d2;
+    font-size: 11px;
+    padding: 2px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Forms */
+.form-page { display: flex; justify-content: center; padding: 60px 20px; background: var(--light); min-height: 80vh; }
+.form-container { background: white; padding: 40px; border-radius: 10px; width: 100%; max-width: 500px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+.form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; }
+.submit-btn { width: 100%; padding: 15px; background: var(--secondary); color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+
+footer { text-align: center; padding: 20px; background: white; border-top: 1px solid #ddd; }
+
+/* This makes sure the logo and text stay on the same line */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the logo and the text */
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+/* Adjust the height to match your navbar size */
+.logo-img {
+    height: 40px; 
+    width: auto;
+    object-fit: contain;
+}
+
+.plans-wrapper {
+    background: #f8f9fa;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.plan-row {
+    display: flex;
+    background: white;
+    margin-bottom: 12px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    align-items: center;
+    border: 1px solid #e1e8ed;
+}
+
+.insurer-brand {
+    flex: 1;
+    border-right: 1px solid #eee;
+    text-align: center;
+}
+
+.brand-logo {
+    font-weight: bold;
+    color: #002e5b;
+    font-size: 1.2rem;
+}
+
+.about-link {
+    font-size: 0.75rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.plan-details {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.plan-name {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0;
+}
+
+.heart-icon { color: #ccc; cursor: pointer; }
+
+.features-brief { margin-top: 5px; font-size: 0.85rem; color: #666; }
+.view-list { color: #007bff; text-decoration: none; font-size: 0.8rem; }
+
+.plan-meta, .plan-pricing {
+    flex: 1.5;
+    text-align: center;
+}
+
+.meta-label { font-size: 0.75rem; color: #888; margin: 0; }
+.meta-value { font-weight: 600; margin-top: 4px; }
+.price-value { font-size: 1.3rem; font-weight: bold; color: #002e5b; margin: 4px 0; }
+.tax-info { font-size: 0.7rem; color: #999; }
+
+.plan-actions {
+    flex: 1.5;
+    text-align: center;
+}
+
+.cta-btn {
+    background: #ffb400;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.compare-checkbox {
+    margin-top: 10px;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* --- sign up  --- */
+
+:root {
+    --primary-blue: #0046ad;
+    --dark-blue: #001a3d;
+    --accent-blue: #00a8ff;
+    --white: #ffffff;
+}
+
+body.aura-premium-theme {
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 26, 61, 0.85) 0%, rgba(0, 70, 173, 0.4) 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Progress Bar --- */
+.top-progress { width: 100%; height: 5px; background: rgba(255,255,255,0.1); }
+.fill { height: 100%; width: 33.33%; background: var(--accent-blue); transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 15px var(--accent-blue); }
+
+.content-wrapper { display: flex; flex: 1; align-items: center; padding: 0 10%; }
+
+/* --- Brand Side --- */
+.brand-side { flex: 1; color: var(--white); padding-right: 50px; }
+.badge { background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.2); }
+.hero-title { font-size: 4rem; font-weight: 800; line-height: 1; margin: 0; }
+.text-blue { color: var(--accent-blue); }
+.text-italic { font-style: italic; font-weight: 300; }
+.hero-sub { font-size: 1.1rem; opacity: 0.8; margin-top: 20px; max-width: 400px; }
+.feature-pills { display: flex; gap: 15px; margin-top: 30px; font-size: 0.9rem; font-weight: 600; }
+
+/* --- Form Side (Glassmorphism) --- */
+.form-side { flex: 0.8; display: flex; flex-direction: column; align-items: center; }
+.glass-card { background: rgba(255, 255, 255, 0.95); padding: 45px; border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); width: 100%; max-width: 450px; }
+
+.step { display: none; }
+.step.active { display: block; animation: fadeInUp 0.6s forwards; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-heading { color: var(--dark-blue); font-size: 1.8rem; margin-bottom: 30px; font-weight: 800; }
+
+/* Interactive Inputs */
+.input-container { position: relative; margin-bottom: 25px; }
+.input-container input, .input-container select { width: 100%; padding: 12px 0; border: none; border-bottom: 2px solid #ddd; background: transparent; font-size: 1rem; color: var(--dark-blue); font-weight: 600; transition: 0.3s; }
+.input-container label { position: absolute; left: 0; top: 12px; color: #999; pointer-events: none; transition: 0.3s; }
+.input-container label.fixed { top: -15px; font-size: 0.8rem; color: var(--primary-blue); }
+
+.input-container input:focus ~ label, .input-container input:not(:placeholder-shown) ~ label {
+    top: -15px; font-size: 0.8rem; color: var(--primary-blue); font-weight: 800;
+}
+.input-container input:focus { outline: none; border-color: var(--primary-blue); }
+
+.main-btn, .submit-btn { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+.main-btn:hover { background: var(--dark-blue); box-shadow: 0 10px 20px rgba(0,70,173,0.3); }
+
+.back-btn { background: none; border: 1px solid #ddd; padding: 15px 25px; border-radius: 10px; cursor: pointer; font-weight: 600; color: #666; }
+.btn-group { display: flex; gap: 10px; }
+.login-footer { margin-top: 20px; color: white; font-size: 0.9rem; }
+.login-footer a { color: var(--accent-blue); font-weight: bold; text-decoration: none; }
+
+/** confirm passwors**/ 
+.validation-msg {
+    display: block;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.match { color: #27ae60; }    /* Green for match */
+.no-match { color: #e74c3c; } /* Red for error */
+
+/* Add a slight glow to the input when passwords match */
+input.valid-match {
+    border-color: #27ae60 !important;
+    box-shadow: 0 0 8px rgba(39, 174, 96, 0.2);
+}
+
+/** bg amination**/
+/* --- Background Animation Container --- */
+.plans-section-container {
+    position: relative; 
+    padding: 80px 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #e3dae6; /* Fallback color */
+}
+
+/* --- The Animation Layer --- */
+.animation-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Sits behind the plans */
+    /* Professional Blue-Teal Gradient */
+    background: linear-gradient(-45deg, #e0f2fe, #f0f9ff, #eef2ff, #e0e7ff);
+    background-size: 400% 400%;
+    animation: meshMovement 12s ease infinite;
+}
+
+/* --- Content Layer (Your Plans) --- */
+.plans-content {
+    position: relative;
+    z-index: 2; /* Sits on top of animation */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Keyframes for the background movement --- */
+@keyframes meshMovement {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Modernizing the Plan Rows --- */
+.plan-row {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent for glass effect */
+    backdrop-filter: blur(8px); /* Blurs the animation slightly behind the card */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.plan-row:hover {
+    transform: translateY(-5px);
+    background: rgb(207, 205, 61);
+    box-shadow: 0 15px 30px rgba(213, 215, 219, 0.1);
+}   
+
+/* The main container */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* The horizontal strip holding 5 images */
+.hero-slider {
+    display: flex;
+    width: 500%; /* 5 images at 100% width each */
+    height: 100%;
+    animation: fastSlide 10s infinite; /* 2 seconds per image = 10s total */
+}
+
+/* Individual slides */
+.slide {
+    width: 100%; 
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Animation Logic for 5 images at 2s intervals */
+@keyframes fastSlide {
+    /* Image 1 */
+    0% { transform: translateX(0%); }
+    15% { transform: translateX(0%); }
+
+    /* Image 2 */
+    20% { transform: translateX(-20%); }
+    35% { transform: translateX(-20%); }
+
+    /* Image 3 */
+    40% { transform: translateX(-40%); }
+    55% { transform: translateX(-40%); }
+
+    /* Image 4 */
+    60% { transform: translateX(-60%); }
+    75% { transform: translateX(-60%); }
+
+    /* Image 5 */
+    80% { transform: translateX(-80%); }
+    95% { transform: translateX(-80%); }
+
+    /* Loop back */
+    100% { transform: translateX(0%); }
+}
+
+/* Make sure the body doesn't scroll past the animation */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Background Canvas Styling */
+#interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps it behind your content */
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+}
+
+/* Booking Wrapper to center your system */
+.booking-wrapper {
+    position: relative;
+    z-index: 1; /* Sits above the canvas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Glassmorphism for the booking card so the animation peaks through */
+.booking-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 70, 173, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Ensure the body takes full height and hides overflow from animation */
+.login-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+/* Moving Mesh Background */
+.login-animation-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Puts it behind the navbar and form */
+    background: linear-gradient(-45deg, #e0f2fe, #f0f9ff, #eef2ff, #e0e7ff);
+    background-size: 400% 400%;
+    animation: auraGradient 15s ease infinite;
+}
+
+/* Animation Logic */
+@keyframes auraGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navbar stay on top and slightly transparent */
+.navbar {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+/* Glassmorphism for the Form Container */
+.form-container.glass-effect {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(15px); /* This makes the background look frosted */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    transition: transform 0.3s ease;
+}
+
+/* Interactive Hover effect */
+.form-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px -12px rgba(0, 70, 173, 0.15);
+}
+
+/* Smooth transition for inputs */
+.form-group input {
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.form-group input:focus {
+    border-color: #0046ad; /* Aura Bazar Blue */
+    box-shadow: 0 0 8px rgba(0, 70, 173, 0.2);
+    outline: none;
+}
+
+/* ==========================================================
+   GLOBAL RESPONSIVE BASICS
+   ========================================================== */
+* {
+    box-sizing: border-box; /* Prevents padding from breaking layout widths */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px; /* Base font size for readability on phones */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent ugly horizontal scrolling on mobile */
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================================================
+   RESPONSIVE FORM CONTAINERS (Login & Signup Pages)
+   ========================================================== */
+.form-container {
+    width: 100%;
+    max-width: 450px; /* Limits size on desktop */
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Stack form fields neatly on small screens */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 12px; /* Bigger touch targets for thumbs! */
+    font-size: 1rem;
+}
+
+/* ==========================================================
+   GRID LAYOUTS (Home Page Features & Booking Grid)
+   ========================================================== */
+/* Automatically handles 1 column on mobile, 2 on tablet, 3-4 on desktop */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 15px;
+}
+
+/* ==========================================================
+   MEDIA QUERIES (Breakpoints for Mobile & Tablets)
+   ========================================================== */
+
+/* Tablet & Mobile Layouts (Screens smaller than 768px) */
+@media (max-width: 768px) {
+    /* Responsive Navigation Bar */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    /* Hero Section adjustments */
+    .hero-section {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2rem; /* Shrink heavy text slightly so it doesn't wrap awkwardly */
+    }
+}
+
+/* Strict Mobile Layouts (Screens smaller than 480px) */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 15px;
+        margin: 20px auto;
+        border-radius: 8px; /* Tighter look on small screens */
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    /* Make buttons full-width stackable */
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+
+
+
+
+
